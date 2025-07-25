@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface OutfitRecommendationProps {
 	weather: any;
 	loading?: boolean;
@@ -98,9 +100,11 @@ const OutfitRecommendation: React.FC<OutfitRecommendationProps> = ({
 				</div>
 				{outfit.img && (
 					<div className="w-full md:w-1/3 flex items-center justify-center h-48 bg-center bg-no-repeat bg-cover rounded-xl p-2">
-						<img
+						<Image
 							src={outfit.img}
 							alt={outfit.title}
+							width={200}
+							height={200}
 							className="max-h-full max-w-full object-contain rounded-xl"
 							style={{ aspectRatio: "1/1" }}
 						/>
