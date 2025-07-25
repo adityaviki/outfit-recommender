@@ -16,7 +16,7 @@ A modern, responsive web application that provides weather information and perso
 ### 🌡️ Weather Information
 
 -   **Current Weather**: Real-time temperature, humidity, wind speed, and weather conditions
--   **7-Day Forecast**: Extended weather predictions with daily high/low temperatures
+-   **5-Day Forecast**: Extended weather predictions with daily high/low temperatures
 -   **Weather Icons**: Visual representation of weather conditions (sunny, rainy, cloudy, etc.)
 -   **Location Details**: City, state, and country information
 
@@ -111,7 +111,7 @@ weather-outfit-recommender/
 │   │   ├── WeatherHeader.tsx     # Application header
 │   │   ├── WeatherSearch.tsx     # City search component
 │   │   ├── WeatherCurrent.tsx    # Current weather display
-│   │   ├── WeatherForecast.tsx   # 7-day forecast
+│   │   ├── WeatherForecast.tsx   # 5-day forecast
 │   │   ├── OutfitRecommendation.tsx # Outfit suggestions
 │   │   └── SearchHistory.tsx     # Search history component
 │   ├── types/
@@ -144,7 +144,7 @@ weather-outfit-recommender/
 
     - Current temperature and weather conditions
     - Wind speed, humidity, and "feels like" temperature
-    - 7-day forecast with daily high/low temperatures
+    - 5-day forecast with daily high/low temperatures
 
 3. **Get Outfit Recommendations**
 

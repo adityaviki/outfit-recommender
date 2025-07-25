@@ -115,12 +115,12 @@ const WeatherForecast: React.FC<WeatherForecastProps> = ({
 		daily[date].push(item);
 	});
 
-	const days = Object.keys(daily).slice(0, 7);
+	const days = Object.keys(daily).slice(0, 5);
 
 	return (
 		<div className="bg-[var(--card-background-color)] rounded-2xl shadow-lg p-6 md:p-8 transition-colors duration-300">
 			<h2 className="text-[var(--text-primary)] text-2xl font-bold tracking-tight mb-4">
-				7-Day Forecast
+				5-Day Forecast
 			</h2>
 			<div className="flex gap-4 overflow-x-auto pb-4">
 				{days.map((date) => {
