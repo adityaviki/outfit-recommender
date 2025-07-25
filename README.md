@@ -7,6 +7,10 @@ A modern, responsive web application that provides weather information and perso
 ![React](https://img.shields.io/badge/React-19.1.0-blue?style=for-the-badge&logo=react)
 ![Material-UI](https://img.shields.io/badge/Material--UI-7.2.0-blue?style=for-the-badge&logo=mui)
 
+## 🌐 Live Demo
+
+**[🚀 Try the Weather Outfit Recommender Live](https://outfit-recommender-two.vercel.app/)**
+
 ## ✨ Features
 
 ### 🌡️ Weather Information
