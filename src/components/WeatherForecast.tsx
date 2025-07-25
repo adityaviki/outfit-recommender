@@ -3,9 +3,10 @@ import WaterDropIcon from "@mui/icons-material/WaterDrop";
 import CloudIcon from "@mui/icons-material/Cloud";
 import FilterDramaIcon from "@mui/icons-material/FilterDrama";
 import ThunderstormIcon from "@mui/icons-material/Thunderstorm";
+import { ForecastData } from "@/types/weather";
 
 interface WeatherForecastProps {
-	forecast: any;
+	forecast: ForecastData | null;
 	loading?: boolean;
 	error?: string | null;
 }
@@ -104,10 +105,10 @@ const WeatherForecast: React.FC<WeatherForecastProps> = ({
 		);
 	}
 
-	const daily: { [date: string]: any[] } = {};
+	const daily: { [date: string]: ForecastData["list"] } = {};
 
 	// Group forecast items by date
-	forecast.list.forEach((item: any) => {
+	forecast.list.forEach((item) => {
 		// YYYY-MM-DD format
 		const date = new Date(item.dt * 1000).toISOString().slice(0, 10);
 		if (!daily[date]) daily[date] = [];

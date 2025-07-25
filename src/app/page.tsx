@@ -7,6 +7,7 @@ import SearchHistory from "@/components/SearchHistory";
 import WeatherCurrent from "@/components/WeatherCurrent";
 import OutfitRecommendation from "@/components/OutfitRecommendation";
 import WeatherForecast from "@/components/WeatherForecast";
+import { ForecastData, WeatherData } from "@/types/weather";
 
 const fetchWeatherData = async (endpoint: string, city: string) => {
 	const url = `https://api.openweathermap.org/data/2.5/${endpoint}?q=${encodeURIComponent(
@@ -23,8 +24,8 @@ const fetchWeatherData = async (endpoint: string, city: string) => {
 };
 
 export default function Home() {
-	const [weather, setWeather] = useState<any>(null);
-	const [forecast, setForecast] = useState<any>(null);
+	const [weather, setWeather] = useState<WeatherData | null>(null);
+	const [forecast, setForecast] = useState<ForecastData | null>(null);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState<string | null>(null);
 	const [city, setCity] = useState<string>("");
@@ -67,8 +68,12 @@ export default function Home() {
 				);
 				return [searchCity, ...filtered].slice(0, 10);
 			});
-		} catch (err: any) {
-			setError(err.message || "Failed to fetch weather data");
+		} catch (err: unknown) {
+			const errorMessage =
+				err instanceof Error
+					? err.message
+					: "Failed to fetch weather data";
+			setError(errorMessage);
 		} finally {
 			setLoading(false);
 		}

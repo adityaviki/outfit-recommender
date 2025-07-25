@@ -1,12 +1,13 @@
+import { WeatherData } from "@/types/weather";
 import Image from "next/image";
 
 interface OutfitRecommendationProps {
-	weather: any;
+	weather: WeatherData;
 	loading?: boolean;
 	error?: string | null;
 }
 
-const getOutfit = (weather: any) => {
+const getOutfit = (weather: WeatherData) => {
 	if (!weather)
 		return {
 			title: "-",

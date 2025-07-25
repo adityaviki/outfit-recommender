@@ -1,7 +1,8 @@
+import { WeatherData } from "@/types/weather";
 import CloudIcon from "@mui/icons-material/Cloud";
 
 interface WeatherCurrentProps {
-	weather: any;
+	weather: WeatherData;
 	loading?: boolean;
 	error?: string | null;
 	city?: string;
