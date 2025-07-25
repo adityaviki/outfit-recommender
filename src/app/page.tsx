@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import WeatherHeader from "@/components/WeatherHeader";
 import WeatherSearch from "@/components/WeatherSearch";
+import SearchHistory from "@/components/SearchHistory";
 
 const fetchWeatherData = async (endpoint: string, city: string) => {
 	const url = `https://api.openweathermap.org/data/2.5/${endpoint}?q=${encodeURIComponent(
@@ -25,6 +26,19 @@ export default function Home() {
 	const [error, setError] = useState<string | null>(null);
 	const [city, setCity] = useState<string>("");
 	const [history, setHistory] = useState<string[]>([]);
+
+	// Load search history from localStorage on mount
+	useEffect(() => {
+		const stored = localStorage.getItem("weather_search_history");
+		if (stored) {
+			setHistory(JSON.parse(stored));
+		}
+	}, []);
+
+	// Save search history to localStorage when it changes
+	useEffect(() => {
+		localStorage.setItem("weather_search_history", JSON.stringify(history));
+	}, [history]);
 
 	const handleSearch = async (searchCity: string) => {
 		setLoading(true);
@@ -57,6 +71,10 @@ export default function Home() {
 		}
 	};
 
+	const handleHistoryClick = (searchCity: string) => {
+		handleSearch(searchCity);
+	};
+
 	return (
 		<div className="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
 			<div className="layout-container flex h-full grow flex-col">
@@ -69,6 +87,12 @@ export default function Home() {
 								loading={loading}
 								error={error}
 							/>
+							{history.length > 0 && (
+								<SearchHistory
+									history={history}
+									onHistoryClick={handleHistoryClick}
+								/>
+							)}
 						</div>
 					</div>
 				</main>
