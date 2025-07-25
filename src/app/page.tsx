@@ -6,6 +6,7 @@ import WeatherSearch from "@/components/WeatherSearch";
 import SearchHistory from "@/components/SearchHistory";
 import WeatherCurrent from "@/components/WeatherCurrent";
 import OutfitRecommendation from "@/components/OutfitRecommendation";
+import WeatherForecast from "@/components/WeatherForecast";
 
 const fetchWeatherData = async (endpoint: string, city: string) => {
 	const url = `https://api.openweathermap.org/data/2.5/${endpoint}?q=${encodeURIComponent(
@@ -115,6 +116,11 @@ export default function Home() {
 									/>
 									<OutfitRecommendation
 										weather={weather}
+										loading={loading}
+										error={error}
+									/>
+									<WeatherForecast
+										forecast={forecast}
 										loading={loading}
 										error={error}
 									/>
