@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import WeatherHeader from "@/components/WeatherHeader";
 import WeatherSearch from "@/components/WeatherSearch";
 import SearchHistory from "@/components/SearchHistory";
+import WeatherCurrent from "@/components/WeatherCurrent";
 
 const fetchWeatherData = async (endpoint: string, city: string) => {
 	const url = `https://api.openweathermap.org/data/2.5/${endpoint}?q=${encodeURIComponent(
@@ -92,6 +93,26 @@ export default function Home() {
 									history={history}
 									onHistoryClick={handleHistoryClick}
 								/>
+							)}
+							{!weather && !loading && (
+								<div className="bg-[var(--card-background-color)] rounded-2xl shadow-lg p-6 md:p-8 transition-colors duration-300 text-center">
+									<p className="text-lg font-medium">
+										Search for a city to see the weather.
+									</p>
+								</div>
+							)}
+							{weather && !error && (
+								<div
+									key={city}
+									className="animate-fade-in flex flex-col gap-8"
+								>
+									<WeatherCurrent
+										weather={weather}
+										loading={loading}
+										error={error}
+										city={city}
+									/>
+								</div>
 							)}
 						</div>
 					</div>
