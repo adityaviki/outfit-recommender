@@ -44,7 +44,7 @@ const WeatherSearch: React.FC<WeatherSearchProps> = ({
 				/>
 				<button
 					type="submit"
-					className="absolute right-2 top-1/2 -translate-y-1/2 bg-[var(--primary-color)] text-white rounded-full px-4 py-2 font-medium text-sm shadow hover:bg-blue-700 transition-colors"
+					className="absolute cursor-pointer right-2 top-1/2 -translate-y-1/2 bg-[var(--primary-color)] text-white rounded-full px-4 py-2 font-medium text-sm shadow hover:bg-blue-700 transition-colors"
 					disabled={loading || !city.trim()}
 				>
 					{loading ? "Loading..." : "Search"}
