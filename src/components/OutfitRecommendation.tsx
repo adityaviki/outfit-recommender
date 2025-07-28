@@ -31,14 +31,14 @@ const getOutfit = (weather: WeatherData) => {
 		accessory = "Wear gloves and a warm hat";
 	}
 
-	if (temp < 5)
+	if (temp < 15)
 		return {
 			title: "Heavy Coat & Scarf",
 			desc: "Stay warm in the cold.",
 			img: "/outfit-images/coat-and-scarf.png",
 			accessory,
 		};
-	if (temp < 15)
+	if (temp < 20)
 		return {
 			title: "Light Jacket & Jeans",
 			desc: "Perfect for a cool, cloudy day.",
