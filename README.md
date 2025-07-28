@@ -24,9 +24,9 @@ A modern, responsive web application that provides weather information and perso
 
 -   **Smart Recommendations**: Outfit suggestions based on temperature and weather conditions
 -   **Temperature-Based Logic**:
-    -   **Below 5°C**: Heavy coat and scarf for cold weather
-    -   **5-15°C**: Light jacket and jeans for cool weather
-    -   **15-25°C**: T-shirt and pants for mild weather
+    -   **Below 15°C**: Heavy coat and scarf for cold weather
+    -   **15-20°C**: Light jacket and jeans for cool weather
+    -   **20-25°C**: T-shirt and pants for mild weather
     -   **Above 25°C**: Shorts and T-shirt for hot weather
 -   **Weather-Specific Accessories**:
     -   Sunglasses for clear weather
